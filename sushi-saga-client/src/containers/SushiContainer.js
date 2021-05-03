@@ -4,6 +4,7 @@ import Sushi from '../components/Sushi'
 
 const SushiContainer = (props) => {
 
+// Take out firt four sushi of sushi Array
   let firstFourSushi = props.sushi.slice( (props.limit - 4 ), props.limit)
 
   return (

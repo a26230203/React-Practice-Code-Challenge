@@ -5,6 +5,7 @@ class Form extends Component {
         amount: 0
     }
 
+// Reset input value to 0 
     resetState = (e) => {
         e.preventDefault()
         this.setState({

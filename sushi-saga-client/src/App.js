@@ -17,7 +17,7 @@ class App extends Component {
 
   }
 
-
+// Fetch the Sushi obj and add eatenFlag and emptyFlag key to sushi obj
   componentDidMount() {
     fetch(API) 
       .then(res => res.json())
@@ -26,13 +26,16 @@ class App extends Component {
         }))
   }
 
+  // Render firt 4 sushi 
   showNextFour = () => {
     this.setState({
       limit: this.state.limit + 4
     })
   }
 
+// Change statu of eatenFlag, emptyFlag and set state remaining and renderPlates
   eatSushi = (sushiObj) => {
+
     // find sushi from state of sushis
     if(this.state.remaining > sushiObj.price && sushiObj.empty === false) {
       this.setState({
@@ -46,6 +49,7 @@ class App extends Component {
     }
   }
 
+// Adding money to SushiWallet
   SubmitAdding = (e) => {
      
      e.preventDefault()
@@ -54,6 +58,7 @@ class App extends Component {
      })
  }
 
+ // Rotation the belt once all sushi being eaten.
  rotation = () => {
     let filterSushi = this.state.sushis.filter((sushi) => sushi.eatenSushi === false)
     console.log(filterSushi.length);
